@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,6 +19,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # os.path.join을 이용해서 해당 폴더의 경로를 지정해봅시다
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+CONF_DIR = os.path.join(BASE_DIR, '.conf')
+config_file = open(os.path.join(CONF_DIR, 'settings_debug.json'))
+config = json.loads(config_file.read())
+config_file.close()
 
 
 # Static files
@@ -32,15 +37,6 @@ AUTHENTICATION_BACKENDS = [
     'member.backends.FacebookBackend',
 ]
 
-# Email
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'fastcampus.2016@gmail.com'
-EMAIL_HOST_PASSWORD = 'fastcampus'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -51,12 +47,6 @@ SECRET_KEY = 'r5smmf=5$8pihr+g3azx%)v+^%xh1zst1)8qi@v^n+^aga9*qo'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-# Facebook
-FACEBOOK_APP_ID = '338774269808826'
-FACEBOOK_SECRET_CODE = 'b780a89551228b4c1015c529a7667722'
-
 
 # Application definition
 INSTALLED_APPS = [

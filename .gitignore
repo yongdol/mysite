@@ -2,6 +2,9 @@
 *.sqlite3
 .idea/
 
+#Config folders
+django_app/.conf/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
