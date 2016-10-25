@@ -1,13 +1,6 @@
-from datetime import datetime
-from django.db import models
-from django.utils.dateparse import parse_datetime
-from django.utils import timezone
-from django.contrib.auth.models import User
 from django.conf import settings
-from django.db.models.signals import post_save, pre_save
-from django.dispatch import receiver
-
-from apis.mail import send_mail
+from django.db import models
+from django.utils import timezone
 
 
 class Post(models.Model):
