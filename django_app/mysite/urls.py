@@ -13,20 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
-# from blog import views as blog_views
-from mysite import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    # blog/urls.py를 사용하지 않고 루트 urls.py를 사용할 경우
-    # url(r'^$', blog_views.post_list, name='post_list'),
-
-    # blog/urls.py의 내용을 사용할 경우
     url(r'', include('blog.urls', namespace='blog')),
     url(r'^member/', include('member.urls', namespace='member')),
     url(r'^video/', include('video.urls', namespace='video')),
     url(r'^sns/', include('sns.urls', namespace='sns')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.STATIC_ROOT)
