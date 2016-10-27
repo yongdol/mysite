@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 __all__ = [
     'album_list',
     'album_add',
+    'album_detail',
 ]
 
 
@@ -37,5 +38,13 @@ def album_add(request):
         'form': form,
     }
     return render(request, 'photo/album_add.html', context)
+
+
+def album_detail(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    context = {
+        'album': album,
+    }
+    return render(request, 'photo/album_detail.html', context)
 
 

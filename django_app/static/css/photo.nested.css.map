@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "photo.nested.css",
+	"sources": [
+		"../sass/photo.sass"
+	],
+	"mappings": "AAAA,AACE,aADW,CACX,WAAW,CAAC;EACV,UAAU,EAAE,IAAK,GAAG",
+	"names": []
+}
