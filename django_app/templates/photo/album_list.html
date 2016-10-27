@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+{% for album in album_list %}
+<div>
+    <h4>{{ album.title }}</h4>
+</div>
+
+{% endfor %}
+{% endblock %}
