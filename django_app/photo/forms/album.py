@@ -20,3 +20,7 @@ class AlbumForm(forms.Form):
         })
     )
 
+    # 특정 field의 내용을 cleaned_data에서 후처리 하고 싶을때
+    # def clean_title(self):
+    #     ori_title = self.cleaned_data['title']
+    #     return 'Album (%s)' % ori_title

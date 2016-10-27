@@ -1,9 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from ..models import Album
 from ..forms import AlbumForm
-from django.contrib.auth.decorators import login_required
-
-
 
 __all__ = [
     'album_list',
@@ -46,5 +44,3 @@ def album_detail(request, pk):
         'album': album,
     }
     return render(request, 'photo/album_detail.html', context)
-
-
