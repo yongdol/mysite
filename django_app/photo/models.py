@@ -25,6 +25,7 @@ class PhotoLike(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
 
+
 class PhotoDisLike(models.Model):
     photo = models.ForeignKey(Photo)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
