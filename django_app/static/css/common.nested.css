@@ -1,0 +1,12 @@
+html, body {
+  font-size: 12px;
+  color: #666; }
+
+.content-container {
+  position: relative; }
+  .content-container .btn-top-right {
+    position: absolute;
+    right: 0;
+    top: -10px; }
+
+/*# sourceMappingURL=common.nested.css.map */
