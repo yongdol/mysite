@@ -55,10 +55,10 @@ class MyUserManager(BaseUserManager):
 
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=100, unique=True)
+    email = models.EmailField('이메일', max_length=100, unique=True)
     last_name = models.CharField(max_length=20, blank=True)
     first_name = models.CharField(max_length=20, blank=True)
-    nickname = models.CharField(max_length=24)
+    nickname = models.CharField(max_length=24, blank=True)
     phone_number = models.CharField(max_length=15, blank=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     is_staff = models.BooleanField(default=False)
@@ -69,7 +69,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     img_profile_url = models.URLField(blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ('last_name', 'first_name', 'nickname', )
+    REQUIRED_FIELDS = ( )
 
     objects = MyUserManager()
 

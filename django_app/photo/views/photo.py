@@ -7,6 +7,7 @@ from ..forms import PhotoForm
 
 __all__ = [
     'photo_add',
+    'photo_detail',
     'photo_like',
 ]
 
@@ -35,6 +36,14 @@ def photo_add(request, album_pk):
         'form': form,
     }
     return render(request, 'photo/photo_add.html', context)
+
+
+def photo_detail(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+    context = {
+        'photo': photo,
+    }
+    return render(request, 'photo/photo_detail.html', context)
 
 
 @login_required

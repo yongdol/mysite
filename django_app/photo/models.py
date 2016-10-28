@@ -59,10 +59,13 @@ class Photo(BaseModel):
         if image_changed:
             self.make_thumbnail()
 
+    def url_thumbnail(self):
+        return self.url_field('img_thumbnail', default='/static/img/default.jpg')
+
     def make_thumbnail(self):
         import os
         from PIL import Image, ImageOps
-        from io import BytesIO
+        from io import BytesIO, StringIO, FileIO
         from django.core.files.base import ContentFile
         from django.core.files.storage import default_storage
 

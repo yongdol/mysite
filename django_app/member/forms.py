@@ -28,17 +28,12 @@ class SignupModelForm(forms.ModelForm):
             'email',
             'password1',
             'password2',
-            'last_name',
-            'first_name',
-            'nickname',
         )
         widgets = {
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'nickname': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+    # clean_<field_name> 은 form의 validation시 처리 후 해당 결과값을 cleaned_data에 넘겨줄 때 사용합니다.
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')

@@ -20,7 +20,17 @@ def post_list(request):
             Q(published_date__lte=timezone.now()) |
             Q(published_date=None)
         ).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'post_list': posts, 'title': '타이틀 변수는 title키를 이용해서 접근'})
+    comment_num_list = []
+    for post in posts:
+        comment_num = len(Comment.objects.filter(post_id=post.id))
+        comment_num_list.append(comment_num)
+
+    context = {
+        'post_list': posts,
+        'title': '타이틀 변수는 title키를 이용해서 접근',
+        'comment_num_list': comment_num_list,
+    }
+    return render(request, 'blog/post_list.html', context)
 
 
 def post_detail(request, pk):

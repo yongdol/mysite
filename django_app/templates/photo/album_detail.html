@@ -16,9 +16,9 @@
 	<div class="photo-list">
 		{% for photo in album.photo_set.all %}
 		<div class="col-xs-6 col-md-3">
-			<div href="" class="thumbnail">
-				<a href="">
-					<img src="{{ photo.img_thumbnail.url }}" alt="">
+			<div class="thumbnail">
+				<a href="{% url 'photo:photo_detail' pk=photo.pk %}">
+					<img src="{{ photo.url_thumbnail }}" alt="">
 				</a>
 				<div class="caption">
 					<div>
